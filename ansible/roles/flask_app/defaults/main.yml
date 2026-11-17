@@ -1,0 +1,4 @@
+---
+app_port: 5000
+app_dir: "{{ lookup('env', 'HOME') }}/flask-task-api"
+repo_src: "{{ playbook_dir }}/.."

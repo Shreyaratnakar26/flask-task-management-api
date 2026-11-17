@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-task-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flask-task-api
+  template:
+    metadata:
+      labels:
+        app: flask-task-api
+    spec:
+      containers:
+        - name: flask-task-api
+          image: flask-task-management-api:latest
+          imagePullPolicy: IfNotPresent   # use locally built image (minikube/kind)
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: flask-task-config
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 10

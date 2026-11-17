@@ -1,0 +1,8 @@
+---
+galaxy_info:
+  author: ShreyaRatnakar26
+  description: Sets up Flask Task Management API runtime
+  license: MIT
+  min_ansible_version: "2.12"
+  platforms: []
+dependencies: []

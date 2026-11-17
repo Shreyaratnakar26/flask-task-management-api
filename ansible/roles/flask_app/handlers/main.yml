@@ -1,0 +1,8 @@
+---
+- name: Restart application
+  ansible.builtin.shell: |
+    pkill -f "gunicorn.*run:app" || true
+    cd {{ app_dir }}
+    nohup venv/bin/gunicorn -b 0.0.0.0:{{ app_port }} run:app > app.log 2>&1 &
+  args:
+    executable: /bin/bash

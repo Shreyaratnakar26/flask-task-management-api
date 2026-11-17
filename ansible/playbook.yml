@@ -1,0 +1,8 @@
+---
+- name: Set up Flask Task Management API runtime
+  hosts: app_servers
+  become: false
+  vars:
+    app_port: 5000              # variable (rubric 2.1)
+  roles:
+    - flask_app
