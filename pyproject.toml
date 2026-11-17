@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flask-task-management-api"
+version = "1.0.0"
+description = "Flask Task Management REST API"
+requires-python = ">=3.9"
+dependencies = ["Flask>=3.0", "gunicorn>=22.0"]
+
+[tool.setuptools]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
