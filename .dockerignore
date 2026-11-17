@@ -1,0 +1,7 @@
+venv/
+.git/
+__pycache__/
+tests/
+dist/
+k8s/
+ansible/
